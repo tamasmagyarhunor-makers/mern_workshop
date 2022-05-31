@@ -5,6 +5,9 @@ const connectDB = require('./config/db');
 const bp = require('body-parser');
 var cors = require('cors');
 
+// routes
+const cars = require('./routes/api/cars');
+
 const app = express();
 
 // Connect to the database
@@ -18,6 +21,9 @@ app.use(bp.urlencoded({ extended: true }));
 app.use(cors({ origin: true, credentials: true }));
 
 app.get('/', (req, res) => res.send('Hello Makers'));
+
+// use routes
+app.use('/api/cars', cars);
 
 const port = process.env.PORT || 8082;
 
