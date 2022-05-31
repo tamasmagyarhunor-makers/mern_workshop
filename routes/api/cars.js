@@ -6,6 +6,8 @@ const router = express.Router();
 // Load Car model
 const Car = require('../../models/Car');
 
+const CarController = require('../../controllers/car.controller');
+
 // @route GET api/cars/test
 // @description tests cars route
 // @access Public
@@ -14,11 +16,7 @@ router.get('/test', (req, res) => res.send('car route testing!'));
 // @route GET api/cars
 // @description Get all cars
 // @access Public
-router.get('/', (req, res) => {
-  Car.find()
-    .then(cars => res.json(cars))
-    .catch(err => res.status(404).json({ nocarsfound: 'No cars found' }));
-});
+router.get('/', CarController.findAll);
 
 // @route GET api/cars/:id
 // @description Get single car by id
@@ -43,7 +41,9 @@ router.post('/', (req, res) => {
 // @access Public
 router.put('/:id', (req, res) => {
   Car.findByIdAndUpdate(req.params.id, req.body)
-    .then(car => res.json({ msg: 'Updated successfully' }))
+    .then(car => res.json({ 
+        msg: 'Updated successfully'
+    }))
     .catch(err =>
       res.status(400).json({ error: 'Unable to update the Database' })
     );
