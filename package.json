@@ -1,0 +1,11 @@
+{
+  "name": "mern_workshop",
+  "version": "1.0.0",
+  "description": "mern stack api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Magyar-Hunor Tamas <hunor@makers.tech>",
+  "license": "ISC"
+}
