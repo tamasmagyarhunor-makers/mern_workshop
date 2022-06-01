@@ -54,7 +54,7 @@ router.put('/:id', (req, res) => {
 // @access Public
 router.delete('/:id', (req, res) => {
   Car.findByIdAndRemove(req.params.id, req.body)
-    .then(car => res.json({ mgs: 'Book entry deleted successfully' }))
+    .then(car => res.json({ mgs: 'Car entry deleted successfully' }))
     .catch(err => res.status(404).json({ error: 'No such a car' }));
 });
 
